@@ -4,8 +4,8 @@
 
 import camera
 
-myCamera = camera.Camera(2, 600, 800, 60)
+myCamera = camera.Camera(2, 600, 800)
 
-myCamera.record("example.avi")
+myCamera.classify_live()
 
 myCamera.release_cam()
