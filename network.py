@@ -37,3 +37,11 @@ def create_network(input_layer, hidden_layer, output_layer):
     model.add(Dense(output_layer, kernel_initializer='normal', activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     return model
+
+def get_trained_network(train_d, train_l, test_d, test_l, epochs):
+    model = create_network(784, 100, 10)
+    model.fit(train_d, train_l, validation_data=(test_d, test_l), epochs=epochs, verbose=1)
+    return model
+
+def single_prediction(img, model):
+    return np.amax(model.predict(img.reshape(1, img.shape[0])))
