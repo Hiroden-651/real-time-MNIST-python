@@ -55,8 +55,9 @@ class Camera:
             if ret == True:
                 data_NN = self.convert_to_data(frame, self.capt_size)
                 self.center_rect(frame, self.capt_size)
-                cv.imshow("MNIST Form", data_NN)
                 cv.putText(frame, "Predicted Digit: " + str(outcome), self.text_pos, 2, 1, (0, 0, 100), 2, cv.LINE_AA)
+                cv.imshow("Camera Feed. Press 'Q' to quit.", frame)
+                cv.imshow("MNIST Form", data_NN)
                 if frame_count % 15 == 0:
                     data_NN = data_NN.reshape(data_NN.shape[0] * data_NN.shape[1]) / 255.0
                     outcome = nn.single_prediction(data_NN, self.network)
@@ -64,7 +65,7 @@ class Camera:
                 frame_count += 1
                 if frame_count == 30:
                     frame_count = 0
-                cv.imshow("Camera Feed. Press 'Q' to quit.", frame)
+                
                 if cv.waitKey(1) & 0xFF == ord('q'):
                     break
             else:
