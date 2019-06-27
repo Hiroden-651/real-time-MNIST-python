@@ -12,9 +12,9 @@ For hardware, specifically the camera, I used a Logitech C930e(1080p@30fps maxim
 
 Once the libraries are installed, clone the repo and run with the following command:
 
-'''bash
+```bash
 python main.py
-'''
+```
 
 This creates two OpenCV image windows: A larger window showing the whole capture input with a window-of-interest specified by a color frame and text denoting classification, and a smaller window showing the MNIST form of the window-of-interest; this is classified by the neural network with the predicted digit written to the larger window.
 
